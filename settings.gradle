@@ -1,0 +1,2 @@
+rootProject.name = 'SkazkaRuntime'
+include ':runtime-core'
