@@ -11,7 +11,7 @@
 - `runtime-core` — Ed25519 signature primitive, диапазоны APP compatibility, строгая HTTPS endpoint policy и атомарное current/previous хранилище с rollback.
 - Trust roots передаёт конкретное приложение/сервис; приватные ключи и production endpoints не входят в SDK.
 - JSON Runtime Pack schema Skazka Hub пока остаётся compatibility adapter поверх core, чтобы не ломать действующие CFG-контракты одним миграционным шагом.
-- Legacy `grouple-*` wire-format identifiers не объявляются новым API; они мигрируются отдельно с сохранением совместимости.
+- Wire-format identifiers из pre-Skazka версий не объявляются новым API; они мигрируются отдельно с сохранением совместимости.
 
 Проверено на HOSTKEY: runtime self-test — PASS; `runtime-core:build` — PASS.
 
@@ -24,7 +24,7 @@ Reusable no-APK/runtime configuration core without Skazka production endpoints o
 - `runtime-core` — Ed25519 signature primitive, APP compatibility ranges, strict HTTPS endpoint policy, and atomic current/previous storage with rollback.
 - Concrete applications/services provide trust roots; private keys and production endpoints are outside the SDK.
 - The Skazka Hub JSON Runtime Pack schema remains a compatibility adapter above the core for now, avoiding a risky one-step CFG wire-format migration.
-- Legacy `grouple-*` wire-format identifiers are not exposed as the new API; they are migrated separately with compatibility preserved.
+- Wire-format identifiers from pre-Skazka versions are not exposed as the new API; they are migrated separately with compatibility preserved.
 
 Verified on HOSTKEY: runtime self-test — PASS; `runtime-core:build` — PASS.
 
