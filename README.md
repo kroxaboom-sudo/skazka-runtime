@@ -4,24 +4,34 @@
 
 ## RU
 
-Клиентские контракты удалённой конфигурации и обновлений, не требующих нового APK.
+Переиспользуемое ядро no-APK/runtime-конфигурации без production endpoints и встроенных ключей Skazka.
 
-**Текущий статус:** репозиторий создан как целевая граница модуля. Рабочий код переносится из существующих проектов поэтапно, с тестами и без копирования project-specific зависимостей.
+**Статус:** `0.1.0-preview`.
 
-**Граница модуля:** CFG/REG-compatible client contracts and validation; production control plane remains private.
+- `runtime-core` — Ed25519 signature primitive, диапазоны APP compatibility, строгая HTTPS endpoint policy и атомарное current/previous хранилище с rollback.
+- Trust roots передаёт конкретное приложение/сервис; приватные ключи и production endpoints не входят в SDK.
+- JSON Runtime Pack schema Skazka Hub пока остаётся compatibility adapter поверх core, чтобы не ломать действующие CFG-контракты одним миграционным шагом.
+- Legacy `grouple-*` wire-format identifiers не объявляются новым API; они мигрируются отдельно с сохранением совместимости.
 
-Перед первым стабильным релизом здесь появятся собственные versioning, тесты, changelog и лицензия. До выбора лицензии публикация кода не означает автоматическое разрешение на его повторное использование.
+Проверено на HOSTKEY: runtime self-test — PASS; `runtime-core:build` — PASS.
 
 ## EN
 
-Client contracts for remote configuration and no-APK updates.
+Reusable no-APK/runtime configuration core without Skazka production endpoints or embedded trust roots.
 
-**Current status:** this repository is the target module boundary. Working code is being extracted from existing projects incrementally, with tests and without copying project-specific dependencies.
+**Status:** `0.1.0-preview`.
 
-**Module boundary:** CFG/REG-compatible client contracts and validation; production control plane remains private.
+- `runtime-core` — Ed25519 signature primitive, APP compatibility ranges, strict HTTPS endpoint policy, and atomic current/previous storage with rollback.
+- Concrete applications/services provide trust roots; private keys and production endpoints are outside the SDK.
+- The Skazka Hub JSON Runtime Pack schema remains a compatibility adapter above the core for now, avoiding a risky one-step CFG wire-format migration.
+- Legacy `grouple-*` wire-format identifiers are not exposed as the new API; they are migrated separately with compatibility preserved.
 
-Before the first stable release, this repository will get its own versioning, tests, changelog, and license. Until a license is selected, publishing the source does not automatically grant reuse rights.
+Verified on HOSTKEY: runtime self-test — PASS; `runtime-core:build` — PASS.
 
-## Development rules / Правила разработки
+## Coordinates / Координаты
+
+- `com.kroxaboom.skazka:runtime-core:0.1.0-preview`
 
 See [DEVELOPMENT_RULES.md](DEVELOPMENT_RULES.md).
+
+> A license will be selected before the first stable public release. Until then, publication of the source does not grant reuse rights.
